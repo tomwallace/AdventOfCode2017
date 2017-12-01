@@ -70,6 +70,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="LastYearDayOneTests.cs" />
+    <Compile Include="PartOneTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
