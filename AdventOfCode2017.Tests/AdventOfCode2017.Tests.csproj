@@ -69,6 +69,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DayFourTests.cs" />
+    <Compile Include="DayThreeTests.cs" />
+    <Compile Include="DayTwoTests.cs" />
     <Compile Include="LastYearDayOneTests.cs" />
     <Compile Include="PartOneTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

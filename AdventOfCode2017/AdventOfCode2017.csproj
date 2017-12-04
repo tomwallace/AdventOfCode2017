@@ -44,12 +44,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DayOne.cs" />
+    <Compile Include="DayThree.cs" />
+    <Compile Include="Four\DayFour.cs" />
+    <Compile Include="Two\DayTwo.cs" />
     <Compile Include="LastYearDayOne.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Four\DayFourInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Two\DayTwoInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
