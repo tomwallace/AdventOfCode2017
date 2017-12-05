@@ -1,4 +1,4 @@
-﻿using System;
+﻿using AdventOfCode2017.Console;
 
 namespace AdventOfCode2017
 {
@@ -12,8 +12,16 @@ namespace AdventOfCode2017
         {
             while (true)
             {
-                Console.Write(LINE_PREFIX);
-                string commandLine = Console.ReadLine();
+                System.Console.Write(LINE_PREFIX);
+                string commandLine = System.Console.ReadLine();
+
+                CommandBuilder builder = new CommandBuilder();
+                ICommand command = builder.Build(commandLine);
+
+                if (!command.HadErrorInCreation())
+                {
+                    command.Execute();
+                }
             }
         }
     }

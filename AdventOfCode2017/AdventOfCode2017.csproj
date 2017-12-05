@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\CommandBuilder.cs" />
+    <Compile Include="Console\Commands\ClearCommand.cs" />
+    <Compile Include="Console\Commands\DefaultCommand.cs" />
+    <Compile Include="Console\Commands\HelpCommand.cs" />
+    <Compile Include="Console\Commands\ListCommand.cs" />
+    <Compile Include="Console\Commands\QuitCommand.cs" />
+    <Compile Include="Console\Commands\RunCommand.cs" />
+    <Compile Include="Console\Commands\VersionCommand.cs" />
+    <Compile Include="Console\ICommand.cs" />
     <Compile Include="DayOne.cs" />
     <Compile Include="Five\DayFive.cs" />
     <Compile Include="Four\DayFour.cs" />
