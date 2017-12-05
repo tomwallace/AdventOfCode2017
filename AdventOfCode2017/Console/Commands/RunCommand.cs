@@ -35,13 +35,22 @@ namespace AdventOfCode2017.Console.Commands
             var problemSetTypes = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
                 .Where(p => interfaceType.IsAssignableFrom(p) && p.IsInterface == false);
-            var problemSetType = problemSetTypes.First(t => t.Name == _className);
+            var problemSetType = problemSetTypes.FirstOrDefault(t => t.Name == _className);
+
+            if (problemSetType == null)
+            {
+                System.Console.WriteLine("The problem set was not found.");
+                System.Console.WriteLine("Have you entered a Day that has not occurred yet?");
+                System.Console.WriteLine("");
+                return;
+            }
 
             var instance = Activator.CreateInstance(problemSetType);
             MethodInfo method = problemSetType.GetMethod(_methodName);
             string output = (string)method.Invoke(instance, new object[0]);
 
             System.Console.WriteLine($"The result is: {output}");
+            System.Console.WriteLine("");
         }
 
         public bool HadErrorInCreation()
