@@ -4,9 +4,19 @@ using System.Linq;
 
 namespace AdventOfCode2017.Four
 {
-    public class DayFour
+    public class DayFour : IAdventProblemSet
     {
-        public long NumberValidPassPhrases()
+        public string Description()
+        {
+            return "High-Entropy Passphrases";
+        }
+
+        public int SortOrder()
+        {
+            return 4;
+        }
+
+        public string PartA()
         {
             long runningValidCount = 0;
             string line;
@@ -20,10 +30,10 @@ namespace AdventOfCode2017.Four
             }
             file.Close();
 
-            return runningValidCount;
+            return runningValidCount.ToString();
         }
 
-        public long NumberValidPassPhrases_NoAnagrams()
+        public string PartB()
         {
             long runningValidCount = 0;
             string line;
@@ -37,7 +47,7 @@ namespace AdventOfCode2017.Four
             }
             file.Close();
 
-            return runningValidCount;
+            return runningValidCount.ToString();
         }
 
         public bool IsValidPassPhrase_Duplicates(string line)

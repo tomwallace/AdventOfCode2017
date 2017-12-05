@@ -34,18 +34,18 @@ namespace AdventOfCode2017.Tests
         public void testCalculateChecksum_PartA()
         {
             var sut = new DayTwo();
-            var result = sut.CalculateChecksumA();
+            var result = sut.PartA();
 
-            Assert.Equal(53460, result);
+            Assert.Equal("53460", result);
         }
 
         [Fact]
         public void testCalculateChecksum_PartB()
         {
             var sut = new DayTwo();
-            var result = sut.CalculateChecksumB();
+            var result = sut.PartB();
 
-            Assert.Equal(282, result);
+            Assert.Equal("282", result);
         }
     }
 }

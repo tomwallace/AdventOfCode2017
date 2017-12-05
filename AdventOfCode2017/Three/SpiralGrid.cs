@@ -1,13 +1,7 @@
 ﻿using System;
 
-namespace AdventOfCode2017
+namespace AdventOfCode2017.Three
 {
-    public class DayThree
-    {
-    }
-
-    // TODO: Break out into seperate clases
-    // TODO: normalize into DayThree that will be able to implement interface
     public class SpiralGrid
     {
         public long WidthStepsToCenter { get; set; }

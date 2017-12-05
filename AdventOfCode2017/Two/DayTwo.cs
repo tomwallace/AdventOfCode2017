@@ -4,9 +4,19 @@ using System.Linq;
 
 namespace AdventOfCode2017.Two
 {
-    public class DayTwo
+    public class DayTwo : IAdventProblemSet
     {
-        public long CalculateChecksumA()
+        public string Description()
+        {
+            return "Corruption Checksum";
+        }
+
+        public int SortOrder()
+        {
+            return 2;
+        }
+
+        public string PartA()
         {
             long runningCheckSum = 0;
             string line;
@@ -19,10 +29,10 @@ namespace AdventOfCode2017.Two
             }
             file.Close();
 
-            return runningCheckSum;
+            return runningCheckSum.ToString();
         }
 
-        public decimal CalculateChecksumB()
+        public string PartB()
         {
             decimal runningCheckSum = 0;
             string line;
@@ -35,7 +45,7 @@ namespace AdventOfCode2017.Two
             }
             file.Close();
 
-            return runningCheckSum;
+            return runningCheckSum.ToString();
         }
 
         public long CalculateLineDifference(string line)

@@ -35,18 +35,18 @@ namespace AdventOfCode2017.Tests
         public void testNumberValidPassPhrases_PartA()
         {
             var sut = new DayFour();
-            var result = sut.NumberValidPassPhrases();
+            var result = sut.PartA();
 
-            Assert.Equal(477, result);
+            Assert.Equal("477", result);
         }
 
         [Fact]
         public void testNumberValidPassPhrases_PartB()
         {
             var sut = new DayFour();
-            var result = sut.NumberValidPassPhrases_NoAnagrams();
+            var result = sut.PartB();
 
-            Assert.Equal(167, result);
+            Assert.Equal("167", result);
         }
     }
 }

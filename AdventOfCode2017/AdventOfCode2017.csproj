@@ -44,8 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DayOne.cs" />
-    <Compile Include="DayThree.cs" />
     <Compile Include="Four\DayFour.cs" />
+    <Compile Include="IAdventProblemSet.cs" />
+    <Compile Include="Three\DayThree.cs" />
+    <Compile Include="Three\Direction.cs" />
+    <Compile Include="Three\SpiralCell.cs" />
+    <Compile Include="Three\SpiralGrid.cs" />
+    <Compile Include="Three\SpiralSummingGrid.cs" />
     <Compile Include="Two\DayTwo.cs" />
     <Compile Include="LastYearDayOne.cs" />
     <Compile Include="Program.cs" />
