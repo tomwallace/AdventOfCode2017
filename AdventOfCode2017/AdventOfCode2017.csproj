@@ -57,6 +57,11 @@
     <Compile Include="Five\DayFive.cs" />
     <Compile Include="Four\DayFour.cs" />
     <Compile Include="IAdventProblemSet.cs" />
+    <Compile Include="Six\DaySix.cs" />
+    <Compile Include="Six\MemoryBank.cs" />
+    <Compile Include="Six\MemoryModule.cs" />
+    <Compile Include="Six\MemoryModuleState.cs" />
+    <Compile Include="Six\MemoryModuleStateComparer.cs" />
     <Compile Include="Three\DayThree.cs" />
     <Compile Include="Three\Direction.cs" />
     <Compile Include="Three\SpiralCell.cs" />
