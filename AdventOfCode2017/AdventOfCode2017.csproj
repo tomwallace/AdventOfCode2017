@@ -57,6 +57,8 @@
     <Compile Include="Five\DayFive.cs" />
     <Compile Include="Four\DayFour.cs" />
     <Compile Include="IAdventProblemSet.cs" />
+    <Compile Include="Seven\DaySeven.cs" />
+    <Compile Include="Seven\Disc.cs" />
     <Compile Include="Six\DaySix.cs" />
     <Compile Include="Six\MemoryBank.cs" />
     <Compile Include="Six\MemoryModule.cs" />
@@ -80,6 +82,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Four\DayFourInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Seven\DaySevenInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Two\DayTwoInput.txt">
