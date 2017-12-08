@@ -54,6 +54,14 @@
     <Compile Include="Console\Commands\VersionCommand.cs" />
     <Compile Include="Console\ICommand.cs" />
     <Compile Include="DayOne.cs" />
+    <Compile Include="Eight\ConditionEvaluator.cs" />
+    <Compile Include="Eight\DayEight.cs" />
+    <Compile Include="Eight\Register.cs" />
+    <Compile Include="Eight\RegisterCommandAttributes.cs" />
+    <Compile Include="Eight\RegisterCommands\DecreaseRegisterCommand.cs" />
+    <Compile Include="Eight\RegisterCommands\IncreaseRegisterCommand.cs" />
+    <Compile Include="Eight\IRegisterCommand.cs" />
+    <Compile Include="Eight\RegisterCommandBuilder.cs" />
     <Compile Include="Five\DayFive.cs" />
     <Compile Include="Four\DayFour.cs" />
     <Compile Include="IAdventProblemSet.cs" />
@@ -78,6 +86,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Eight\DayEightInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Eight\DayEightTestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Five\DayFiveInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
