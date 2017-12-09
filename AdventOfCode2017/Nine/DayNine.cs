@@ -6,8 +6,6 @@ namespace AdventOfCode2017.Nine
 {
     public class DayNine : IAdventProblemSet
     {
-        public static readonly int Input = 277678;
-
         public string Description()
         {
             return "Stream Processing";
@@ -15,7 +13,7 @@ namespace AdventOfCode2017.Nine
 
         public int SortOrder()
         {
-            return 3;
+            return 9;
         }
 
         public string PartA()
@@ -58,31 +56,31 @@ namespace AdventOfCode2017.Nine
             int totalScore = 0;
             int groupScore = 0;
             int currentPointer = 0;
-            int startGarbage = -1;
+            bool inGarbage = false;
             int garbageScore = 0;
 
             while (currentPointer < inputSplit.Count)
             {
                 char currentChar = inputSplit[currentPointer];
-                if (currentChar == '!' && startGarbage > -1)
+                if (currentChar == '!' && inGarbage)
                 {
                     inputSplit.RemoveAt(currentPointer + 1);
                 }
                 else
                 {
-                    if (currentChar != '>' && startGarbage > -1)
+                    if (currentChar != '>' && inGarbage)
                         garbageScore++;
 
-                    if (currentChar == '<' && startGarbage == -1)
-                        startGarbage = currentPointer;
+                    if (currentChar == '<' && !inGarbage)
+                        inGarbage = true;
 
                     if (currentChar == '>')
-                        startGarbage = -1;
+                        inGarbage = false;
 
-                    if (currentChar == '{' && startGarbage == -1)
+                    if (currentChar == '{' && !inGarbage)
                         groupScore++;
 
-                    if (currentChar == '}' && startGarbage == -1)
+                    if (currentChar == '}' && !inGarbage)
                     {
                         totalScore += groupScore;
                         groupScore--;
