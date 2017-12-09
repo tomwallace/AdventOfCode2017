@@ -65,6 +65,8 @@
     <Compile Include="Five\DayFive.cs" />
     <Compile Include="Four\DayFour.cs" />
     <Compile Include="IAdventProblemSet.cs" />
+    <Compile Include="Nine\DayNine.cs" />
+    <Compile Include="Nine\ParseResults.cs" />
     <Compile Include="Seven\DaySeven.cs" />
     <Compile Include="Seven\Disc.cs" />
     <Compile Include="Six\DaySix.cs" />
@@ -96,6 +98,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Four\DayFourInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nine\DayNineInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Seven\DaySevenInput.txt">
