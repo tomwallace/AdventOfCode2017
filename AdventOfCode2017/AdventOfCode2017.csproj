@@ -74,6 +74,8 @@
     <Compile Include="Six\MemoryModule.cs" />
     <Compile Include="Six\MemoryModuleState.cs" />
     <Compile Include="Six\MemoryModuleStateComparer.cs" />
+    <Compile Include="Ten\DayTen.cs" />
+    <Compile Include="Ten\KnotHashState.cs" />
     <Compile Include="Three\DayThree.cs" />
     <Compile Include="Three\Direction.cs" />
     <Compile Include="Three\SpiralCell.cs" />
