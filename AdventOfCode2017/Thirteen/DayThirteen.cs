@@ -32,7 +32,6 @@ namespace AdventOfCode2017.Thirteen
         {
             List<Layer> firewall = CreateFirewall(filePath);
 
-            int packetLocation = 0;
             int totalSeverity = 0;
 
             foreach (Layer layer in firewall)
@@ -40,11 +39,8 @@ namespace AdventOfCode2017.Thirteen
                 if (layer.IsCaught())
                     totalSeverity += layer.Severity();
 
-                packetLocation++;
                 foreach (Layer toAdvance in firewall)
-                {
                     toAdvance.Advance();
-                }
             }
 
             return totalSeverity;
