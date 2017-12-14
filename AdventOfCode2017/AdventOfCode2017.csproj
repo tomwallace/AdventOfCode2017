@@ -80,6 +80,8 @@
     <Compile Include="Six\MemoryModuleStateComparer.cs" />
     <Compile Include="Ten\DayTen.cs" />
     <Compile Include="Ten\KnotHashState.cs" />
+    <Compile Include="Thirteen\DayThirteen.cs" />
+    <Compile Include="Thirteen\Layer.cs" />
     <Compile Include="Three\DayThree.cs" />
     <Compile Include="Three\Direction.cs" />
     <Compile Include="Three\SpiralCell.cs" />
@@ -116,6 +118,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Seven\DaySevenInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Thirteen\DayThirteenInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Thirteen\DayThirteenTestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Twelve\DayTwelveInput.txt">
