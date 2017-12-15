@@ -71,7 +71,9 @@
   <ItemGroup>
     <Compile Include="DayEightTests.cs" />
     <Compile Include="DayElvenTests.cs" />
+    <Compile Include="DayFifteenTests.cs" />
     <Compile Include="DayFiveTests.cs" />
+    <Compile Include="DayFourteenTests.cs" />
     <Compile Include="DayFourTests.cs" />
     <Compile Include="DayNineTests.cs" />
     <Compile Include="DaySevenTests.cs" />

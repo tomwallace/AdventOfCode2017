@@ -31,8 +31,14 @@ namespace AdventOfCode2017.Ten
 
         public string PartB()
         {
-            List<int> asciiCodes = ToAsciiCode(Input);
-            List<int> extraCodes = new List<int>() { 17, 31, 73, 47, 23 };
+            return ToKnotHash(Input);
+        }
+
+        // TODO: Figure out how this can refactor
+        public string ToKnotHash(List<int> localInput)
+        {
+            List<int> asciiCodes = ToAsciiCode(localInput);
+            List<int> extraCodes = new List<int>() {17, 31, 73, 47, 23};
             List<int> merged = asciiCodes.Concat(extraCodes).ToList();
 
             List<int> elements = Enumerable.Range(0, 256).ToList();
@@ -94,8 +100,14 @@ namespace AdventOfCode2017.Ten
 
         public List<int> ToAsciiCode(List<int> input)
         {
-            List<int> output = new List<int>();
             string inputString = string.Join(",", input);
+
+            return ToAsciiCode(inputString);
+        }
+
+        public List<int> ToAsciiCode(string inputString)
+        {
+            List<int> output = new List<int>();
 
             foreach (char c in inputString)
             {

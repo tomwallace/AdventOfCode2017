@@ -66,7 +66,11 @@
     <Compile Include="Eleven\Hex.cs" />
     <Compile Include="Eleven\HexMap.cs" />
     <Compile Include="Eleven\HexMapResults.cs" />
+    <Compile Include="Fifteen\DayFifteen.cs" />
+    <Compile Include="Fifteen\Generator.cs" />
+    <Compile Include="Fifteen\GeneratorStartingValuePair.cs" />
     <Compile Include="Five\DayFive.cs" />
+    <Compile Include="Fourteen\DayFourteen.cs" />
     <Compile Include="Four\DayFour.cs" />
     <Compile Include="IAdventProblemSet.cs" />
     <Compile Include="Nine\DayNine.cs" />
