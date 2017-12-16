@@ -83,6 +83,7 @@
     <Compile Include="Six\MemoryModuleState.cs" />
     <Compile Include="Six\MemoryModuleStateComparer.cs" />
     <Compile Include="Ten\DayTen.cs" />
+    <Compile Include="Ten\KnotHash.cs" />
     <Compile Include="Ten\KnotHashState.cs" />
     <Compile Include="Thirteen\DayThirteen.cs" />
     <Compile Include="Thirteen\Layer.cs" />

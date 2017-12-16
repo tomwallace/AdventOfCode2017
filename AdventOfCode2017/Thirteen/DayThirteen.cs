@@ -8,7 +8,7 @@ namespace AdventOfCode2017.Thirteen
     {
         public string Description()
         {
-            return "Packet Scanners";
+            return "Packet Scanners (HARD)";
         }
 
         public int SortOrder()

@@ -6,7 +6,7 @@
 
         public string Description()
         {
-            return "Spiral Memory";
+            return "Spiral Memory (HARD)";
         }
 
         public int SortOrder()

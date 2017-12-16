@@ -12,7 +12,7 @@ namespace AdventOfCode2017.Fourteen
 
         public string Description()
         {
-            return "Disk Defragmentation";
+            return "Disk Defragmentation (HARD)";
         }
 
         public int SortOrder()
