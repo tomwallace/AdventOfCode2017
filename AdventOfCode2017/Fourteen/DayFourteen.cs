@@ -27,13 +27,11 @@ namespace AdventOfCode2017.Fourteen
 
         public string PartB()
         {
-            return "";
+            return CalculateNumberOfRegions(Input).ToString();
         }
         
         public int CalculateNumberOfUsedSquares(string baseInput)
         {
-            // TODO: consider removing disk, as not really used
-            List<string> disk = new List<string>();
             int usedSquares = 0;
             for (int i = 0; i < 128; i++)
             {
@@ -41,22 +39,31 @@ namespace AdventOfCode2017.Fourteen
                 string row = CreateFragmenterRow(input);
                 int localUsedSquares = row.ToCharArray().Where(c => c == '1').Count();
                 usedSquares += localUsedSquares;
-                disk.Add(row);
             }
 
             return usedSquares;
         }
 
+        public int CalculateNumberOfRegions(string baseInput)
+        {
+            List<string> diskInput = new List<string>();
+            for (int i = 0; i < 128; i++)
+            {
+                string input = $"{baseInput}-{i}";
+                string row = CreateFragmenterRow(input);
+                diskInput.Add(row);
+            }
+
+            Disk disk = new Disk(diskInput);
+            int result = disk.CountRegions();
+            return result;
+        }
+
         public string CreateFragmenterRow(string localInput)
         {
-            // ex: flqrgnkx-0
-            // TODO: Refactor into a utility class that is not tied directly to a puzzle
-            DayTen dayTen = new DayTen();
+            KnotHash knotHash = new KnotHash(localInput);
 
-            List<int> knotHashInput = dayTen.ToAsciiCode(localInput);
-            string knotHash = dayTen.ToKnotHash(knotHashInput);
-
-            return ConvertHexToBinaryString(knotHash);
+            return ConvertHexToBinaryString(knotHash.HexOutput);
         }
 
         
@@ -69,14 +76,128 @@ namespace AdventOfCode2017.Fourteen
                                     );
             return binarystring;
         }
-        /*
-        public byte[] StringToByteArray(string hex)
+    }
+
+    public class Disk
+    {
+        private List<Location> _locations;
+
+        public Disk(List<string> rows)
         {
-            return Enumerable.Range(0, hex.Length)
-                             .Where(x => x % 2 == 0)
-                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
-                             .ToArray();
+            _locations = new List<Location>();
+
+            int rowCounter = 0;
+            int cCounter = 0;
+            foreach (string row in rows)
+            {
+                foreach (char c in row)
+                {
+                    bool isUsed = c == '1';
+                    Location location = new Location() { Id = $"{rowCounter}.{cCounter}", IsUsed = isUsed, IsRemoved = false};
+                    _locations.Add(location);
+                    cCounter++;
+                }
+                cCounter = 0;
+                rowCounter++;
+            }
+
+            LinkLocations();
         }
-        */
+
+        public int CountRegions()
+        {
+            int regions = 0;
+            for (int row = 0; row < 128; row++)
+            {
+                for (int col = 0; col < 128; col++)
+                {
+                    Location current = _locations.Find(l => l.Id == $"{row}.{col}");
+                    if (current.IsAvailable())
+                    {
+                        regions++;
+                        MarkRegion(current);
+                    }
+                }
+            }
+
+            return regions;
+        }
+
+        private void MarkRegion(Location start)
+        {
+            Queue<Location> queue = new Queue<Location>();
+            queue.Enqueue(start);
+
+            do
+            {
+                Location current = queue.Dequeue();
+
+                if (current.IsAvailable())
+                {
+                    current.IsRemoved = true;
+                    if (current.North != null && current.North.IsAvailable())
+                        queue.Enqueue(current.North);
+
+                    if (current.East != null && current.East.IsAvailable())
+                        queue.Enqueue(current.East);
+
+                    if (current.West != null && current.West.IsAvailable())
+                        queue.Enqueue(current.West);
+
+                    if (current.South != null && current.South.IsAvailable())
+                        queue.Enqueue(current.South);
+                }
+
+            } while (queue.Count > 0);
+        }
+
+        private void LinkLocations()
+        {
+            for (int row = 0; row < 128; row++)
+            {
+                for (int col = 0; col < 128; col++)
+                {
+                    Location current = _locations.Find(l => l.Id == $"{row}.{col}");
+                    Location north = _locations.FirstOrDefault(l => l.Id == $"{row+1}.{col}");
+                    Location east = _locations.FirstOrDefault(l => l.Id == $"{row}.{col+1}");
+                    Location south = _locations.FirstOrDefault(l => l.Id == $"{row-1}.{col}");
+                    Location west = _locations.FirstOrDefault(l => l.Id == $"{row}.{col-1}");
+                    current.North = north;
+                    if (current.North != null)
+                        current.North.South = current;
+                    current.East = east;
+                    if (current.East != null)
+                        current.East.West = current;
+                    current.South = south;
+                    if (current.South != null)
+                        current.South.North = current;
+                    current.West = west;
+                    if (current.West != null)
+                        current.West.East = current;
+                }
+            }
+        }
+    }
+
+    public class Location
+    {
+        public string Id { get; set; }
+
+        public bool IsUsed { get; set; }
+
+        public bool IsRemoved { get; set; }
+
+        public Location North { get; set; }
+
+        public Location East { get; set; }
+
+        public Location South { get; set; }
+
+        public Location West { get; set; }
+
+        public bool IsAvailable()
+        {
+            return IsUsed && !IsRemoved;
+        }
     }
 }

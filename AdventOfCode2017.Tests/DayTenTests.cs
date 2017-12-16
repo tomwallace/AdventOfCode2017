@@ -64,6 +64,18 @@ namespace AdventOfCode2017.Tests
         }
 
         [Fact]
+        public void TestKnotHash_string()
+        {
+            var dayTen = new DayTen();
+            List<int> originalInput = dayTen.Input;
+            string stringInput = string.Join<int>(",", originalInput);
+
+            var knotHash = new KnotHash(stringInput);
+            Assert.Equal(32, knotHash.HexOutput.Length);
+            Assert.Equal("0c2f794b2eb555f7830766bf8fb65a16", knotHash.HexOutput);
+        }
+
+        [Fact]
         public void TestPartA()
         {
             var sut = new DayTen();

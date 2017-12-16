@@ -19,7 +19,6 @@ namespace AdventOfCode2017.Tests
             Assert.Equal(expected, result);
         }
 
-        // TODO: Figure out why not getting correct knot-square
         [Fact]
         public void TestCalculateNumberOfUsedSquares()
         {
@@ -27,16 +26,15 @@ namespace AdventOfCode2017.Tests
             var sut = new DayFourteen();
             var result = sut.CalculateNumberOfUsedSquares(baseInput);
 
-            // coming up with 8224
             Assert.Equal(8108, result);
         }
 
         [Theory]
         [InlineData("flqrgnkx-0", "11010100")]
-        //[InlineData("flqrgnkx-1", "01010101")]
-        //[InlineData("flqrgnkx-2", "00001010")]
-        //[InlineData("flqrgnkx-3", "10101101")]
-        //[InlineData("flqrgnkx-4", "01101000")]
+        [InlineData("flqrgnkx-1", "01010101")]
+        [InlineData("flqrgnkx-2", "00001010")]
+        [InlineData("flqrgnkx-3", "10101101")]
+        [InlineData("flqrgnkx-4", "01101000")]
         public void TestCreateFragmenterRow(string input, string expectedStart)
         {
             var sut = new DayFourteen();
@@ -46,15 +44,38 @@ namespace AdventOfCode2017.Tests
             Assert.Equal(expectedStart, start);
         }
 
+        // Takes 5 min to run - only uncomment if necessary
+        /*
+        [Fact]
+        public void TestDiskCalculateNumberOfRegions()
+        {
+            var baseInput = "flqrgnkx";
+            var sut = new DayFourteen();
+            var result = sut.CalculateNumberOfRegions(baseInput);
+
+            Assert.Equal(1242, result);
+        }
+        */
+
         [Fact]
         public void TestPartA()
         {
             var sut = new DayFourteen();
             var result = sut.PartA();
 
-            // 8960 is too high
-            // 8224 is too high
-            Assert.Equal("8960", result);
+            Assert.Equal("8222", result);
         }
+
+        // Takes 5 min to run - only uncomment if necessary
+        /*
+        [Fact]
+        public void TestPartB()
+        {
+            var sut = new DayFourteen();
+            var result = sut.PartB();
+
+            Assert.Equal("1086", result);
+        }
+        */
     }
 }
