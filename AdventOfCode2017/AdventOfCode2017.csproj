@@ -77,6 +77,7 @@
     <Compile Include="Nine\ParseResults.cs" />
     <Compile Include="Seven\DaySeven.cs" />
     <Compile Include="Seven\Disc.cs" />
+    <Compile Include="Sixteen\DaySixteen.cs" />
     <Compile Include="Six\DaySix.cs" />
     <Compile Include="Six\MemoryBank.cs" />
     <Compile Include="Six\MemoryModule.cs" />
