@@ -23,6 +23,7 @@ namespace AdventOfCode2017.Tests
             Assert.False(genA.IsEqual(genB));
         }
 
+
         [Fact]
         public void TestGeneratorA()
         {

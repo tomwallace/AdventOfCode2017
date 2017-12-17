@@ -53,7 +53,7 @@
     <Compile Include="Console\Commands\RunCommand.cs" />
     <Compile Include="Console\Commands\VersionCommand.cs" />
     <Compile Include="Console\ICommand.cs" />
-    <Compile Include="DayOne.cs" />
+    <Compile Include="One\DayOne.cs" />
     <Compile Include="Eight\ConditionEvaluator.cs" />
     <Compile Include="Eight\DayEight.cs" />
     <Compile Include="Eight\Register.cs" />
@@ -75,6 +75,9 @@
     <Compile Include="IAdventProblemSet.cs" />
     <Compile Include="Nine\DayNine.cs" />
     <Compile Include="Nine\ParseResults.cs" />
+    <Compile Include="Seventeen\DaySeventeen.cs" />
+    <Compile Include="Seventeen\SpinLock.cs" />
+    <Compile Include="Seventeen\SpinLockSingleIndex.cs" />
     <Compile Include="Seven\DaySeven.cs" />
     <Compile Include="Seven\Disc.cs" />
     <Compile Include="Sixteen\DaySixteen.cs" />

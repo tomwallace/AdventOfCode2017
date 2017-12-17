@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using AdventOfCode2017.One;
+using Xunit;
 
 namespace AdventOfCode2017.Tests
 {

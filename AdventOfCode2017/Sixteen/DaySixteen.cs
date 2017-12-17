@@ -10,7 +10,7 @@ namespace AdventOfCode2017.Sixteen
 
         public string Description()
         {
-            return "Permutation Prominade";
+            return "Permutation Prominade (HARD)";
         }
 
         public int SortOrder()
@@ -177,7 +177,8 @@ namespace AdventOfCode2017.Sixteen
         }
     }
 
-    // TODO: Consider if this class is necessary
+    // TODO: REMOVE - not needed
+    // TODO: Break out classes into their own files
     public class Dancers
     {
         private List<char> _dancers;
