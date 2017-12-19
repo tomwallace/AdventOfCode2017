@@ -55,6 +55,9 @@
     <Compile Include="Console\ICommand.cs" />
     <Compile Include="Eighteen\DayEighteen.cs" />
     <Compile Include="Eighteen\SoundBoard.cs" />
+    <Compile Include="Nineteen\DayNineteen.cs" />
+    <Compile Include="Nineteen\Direction.cs" />
+    <Compile Include="Nineteen\MapResults.cs" />
     <Compile Include="One\DayOne.cs" />
     <Compile Include="Eight\ConditionEvaluator.cs" />
     <Compile Include="Eight\DayEight.cs" />
@@ -134,6 +137,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Four\DayFourInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nineteen\DayNineteenInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nineteen\DayNineteenTestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Nine\DayNineInput.txt">
