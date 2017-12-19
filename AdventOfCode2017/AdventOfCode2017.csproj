@@ -82,7 +82,12 @@
     <Compile Include="Seventeen\SpinLockSingleIndex.cs" />
     <Compile Include="Seven\DaySeven.cs" />
     <Compile Include="Seven\Disc.cs" />
+    <Compile Include="Sixteen\DanceCommandBuilder.cs" />
     <Compile Include="Sixteen\DaySixteen.cs" />
+    <Compile Include="Sixteen\Exchange.cs" />
+    <Compile Include="Sixteen\IDanceCommand.cs" />
+    <Compile Include="Sixteen\Partner.cs" />
+    <Compile Include="Sixteen\Spin.cs" />
     <Compile Include="Six\DaySix.cs" />
     <Compile Include="Six\MemoryBank.cs" />
     <Compile Include="Six\MemoryModule.cs" />

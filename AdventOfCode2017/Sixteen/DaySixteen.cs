@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace AdventOfCode2017.Sixteen
@@ -29,10 +29,24 @@ namespace AdventOfCode2017.Sixteen
             string dancers = "abcdefghijklmnop";
             int counter = 0;
 
+            Dictionary<string, string> previousDances = new Dictionary<string, string>();
+
             do
             {
-                dancers = ExecuteDance(dancers, Input);
+                // If we have encountered it before, just skip it.
+                if (previousDances.ContainsKey(dancers))
+                    dancers = previousDances[dancers];
+                else
+                {
+                    string previous = dancers;
+                    dancers = ExecuteDance(dancers, Input);
+                    previousDances.Add(previous, dancers);
+                }
+
                 counter++;
+
+                if (counter % 1000000 == 0)
+                    Debug.WriteLine(counter);
             } while (counter < 1000000000);
 
             return new string(dancers.ToArray());
@@ -49,148 +63,6 @@ namespace AdventOfCode2017.Sixteen
             }
 
             return new string(dancers.ToArray());
-        }
-    }
-
-    public class DanceCommandBuilder
-    {
-        public IDanceCommand Build(string command)
-        {
-            IDanceCommand createdCommand;
-
-            string firstChar = command.Substring(0, 1);
-            switch (firstChar)
-            {
-                case "s":
-                    createdCommand = new Spin(command);
-                    break;
-
-                case "x":
-                    createdCommand = new Exchange(command);
-                    break;
-
-                case "p":
-                    createdCommand = new Partner(command);
-                    break;
-
-                default:
-                    throw new ArgumentException("Command requested not defined");
-            }
-
-            return createdCommand;
-        }
-    }
-
-    public interface IDanceCommand
-    {
-        string Execute(string input);
-    }
-
-    public class Spin : IDanceCommand
-    {
-        private readonly int _steps;
-
-        public Spin(string input)
-        {
-            // ex: sX
-            string stepInput = input.Substring(1);
-            _steps = int.Parse(stepInput);
-        }
-
-        public string Execute(string input)
-        {
-            string output = "";
-            int modInputLength = input.Length - _steps;
-            for (int x = modInputLength; x < (modInputLength + input.Length); x++)
-            {
-                int index = x;
-                if (index >= input.Length)
-                    index = index - input.Length;
-
-                output = $"{output}{input[index]}";
-            }
-
-            return output;
-        }
-    }
-
-    public class Partner : IDanceCommand
-    {
-        private readonly char _first;
-        private readonly char _second;
-
-        public Partner(string input)
-        {
-            // ex: pa/b
-            string trimmed = input.Substring(1);
-            string[] split = trimmed.Split('/');
-            _first = split[0].ToCharArray()[0];
-            _second = split[1].ToCharArray()[0];
-        }
-
-        public string Execute(string dancers)
-        {
-            char[] dancersArray = dancers.ToCharArray();
-            int indexFirst = FindIndex(dancersArray, _first);
-            int indexSecond = FindIndex(dancersArray, _second);
-            dancersArray[indexFirst] = _second;
-            dancersArray[indexSecond] = _first;
-
-            return new string(dancersArray);
-        }
-
-        private int FindIndex(char[] array, char target)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] == target)
-                    return i;
-            }
-
-            throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    public class Exchange : IDanceCommand
-    {
-        private readonly int _firstIndex;
-        private readonly int _secondIndex;
-
-        public Exchange(string input)
-        {
-            // ex: x3/4
-            string trimmed = input.Substring(1);
-            string[] split = trimmed.Split('/');
-            _firstIndex = int.Parse(split[0]);
-            _secondIndex = int.Parse(split[1]);
-        }
-
-        public string Execute(string dancers)
-        {
-            char[] dancersArray = dancers.ToCharArray();
-            char first = dancersArray[_firstIndex];
-            char second = dancersArray[_secondIndex];
-            dancersArray[_firstIndex] = second;
-            dancersArray[_secondIndex] = first;
-
-            return new string(dancersArray);
-        }
-    }
-
-    // TODO: REMOVE - not needed
-    // TODO: Break out classes into their own files
-    public class Dancers
-    {
-        private List<char> _dancers;
-
-        public Dancers(List<char> input)
-        {
-            _dancers = input;
-        }
-
-        public override string ToString()
-        {
-            return new string(_dancers.ToArray());
         }
     }
 }

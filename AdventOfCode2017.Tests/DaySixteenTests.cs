@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using AdventOfCode2017.Sixteen;
+﻿using AdventOfCode2017.Sixteen;
 using Xunit;
 
 namespace AdventOfCode2017.Tests
@@ -61,7 +60,7 @@ namespace AdventOfCode2017.Tests
             Assert.Equal("cgpfhdnambekjiol", result);
         }
 
-        // TODO: I have to refactor this somehow, as the 1 billion iterations was only on 2 million after running overnight
+        // Takes over 9 minutes, so only uncomment if necessary.
         /*
         [Fact]
         public void TestPartB()
@@ -69,7 +68,7 @@ namespace AdventOfCode2017.Tests
             var sut = new DaySixteen();
             var result = sut.PartB();
 
-            Assert.Equal("", result);
+            Assert.Equal("gjmiofcnaehpdlbk", result);
         }
         */
     }
