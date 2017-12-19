@@ -53,6 +53,8 @@
     <Compile Include="Console\Commands\RunCommand.cs" />
     <Compile Include="Console\Commands\VersionCommand.cs" />
     <Compile Include="Console\ICommand.cs" />
+    <Compile Include="Eighteen\DayEighteen.cs" />
+    <Compile Include="Eighteen\SoundBoard.cs" />
     <Compile Include="One\DayOne.cs" />
     <Compile Include="Eight\ConditionEvaluator.cs" />
     <Compile Include="Eight\DayEight.cs" />
@@ -108,6 +110,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Eighteen\DayEighteenInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Eighteen\DayEighteenTestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Eight\DayEightInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
