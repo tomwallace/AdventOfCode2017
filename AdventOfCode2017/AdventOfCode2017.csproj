@@ -109,6 +109,10 @@
     <Compile Include="Twelve\DayTwelve.cs" />
     <Compile Include="Twelve\Program.cs" />
     <Compile Include="Twelve\ProgramConnectedState.cs" />
+    <Compile Include="Twenty\Coordinate.cs" />
+    <Compile Include="Twenty\DayTwenty.cs" />
+    <Compile Include="Twenty\Particle.cs" />
+    <Compile Include="Twenty\ParticleComparer.cs" />
     <Compile Include="Two\DayTwo.cs" />
     <Compile Include="LastYearDayOne.cs" />
     <Compile Include="Program.cs" />
@@ -161,6 +165,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Twelve\DayTwelveTestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Twenty\DayTwentyInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Twenty\DayTwentyTestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Twenty\DayTwentyTestTwoInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Two\DayTwoInput.txt">
