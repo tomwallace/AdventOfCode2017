@@ -18,7 +18,6 @@ namespace AdventOfCode2017.TwentyOne
             return 21;
         }
 
-        // TODO: Clean up unused code
         public string PartA()
         {
             string filePath = @"TwentyOne\DayTwentyOneInput.txt";
