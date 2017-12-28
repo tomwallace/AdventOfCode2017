@@ -109,6 +109,8 @@
     <Compile Include="Twelve\DayTwelve.cs" />
     <Compile Include="Twelve\Program.cs" />
     <Compile Include="Twelve\ProgramConnectedState.cs" />
+    <Compile Include="TwentyFive\DayTwentyFive.cs" />
+    <Compile Include="TwentyFive\TuringState.cs" />
     <Compile Include="TwentyFour\BridgeState.cs" />
     <Compile Include="TwentyFour\Component.cs" />
     <Compile Include="TwentyFour\DayTwentyFour.cs" />
