@@ -14,16 +14,12 @@ namespace AdventOfCode2017.Tests
             Assert.Equal("9409", result);
         }
 
-        // TODO: Need to make this simpler - change the input.
-        /*
         [Fact]
         public void TestPartB()
         {
             var sut = new DayTwentyThree();
             var result = sut.PartB();
-
-            Assert.Equal("-1", result);
+            Assert.Equal("913", result);
         }
-        */
     }
 }

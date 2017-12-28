@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 
 namespace AdventOfCode2017.TwentyThree
@@ -9,7 +8,7 @@ namespace AdventOfCode2017.TwentyThree
     {
         public string Description()
         {
-            return "Coprocessor Conflagration";
+            return "Coprocessor Conflagration (HARD)";
         }
 
         public int SortOrder()
@@ -25,8 +24,7 @@ namespace AdventOfCode2017.TwentyThree
 
         public string PartB()
         {
-            string filePath = @"TwentyThree\DayTwentyThreeInput.txt";
-            return DetermineRegisterH(filePath).ToString();
+            return RunConsolidatedInstructions().ToString();
         }
 
         public int RunThroughInstructionsAndCountMult(string filePath)
@@ -40,32 +38,41 @@ namespace AdventOfCode2017.TwentyThree
                 string instruction = instructions[coprocessor.CurrentInstruction];
                 count += ProcessInstruction(instruction, coprocessor);
                 coprocessor.CurrentInstruction++;
-                
             } while (coprocessor.CurrentInstruction < 32);  // 32 is lines in current program
 
             return count;
         }
 
-        public long DetermineRegisterH(string filePath)
+        public int RunConsolidatedInstructions()
         {
-            List<string> instructions = GetInstructions(filePath);
+            // I really struggled with this solution.  Some helpful hints on the Reddit thread for Day 23 got me thinking about the problem as a refactoring.
+            // The result is below, having removed and simplified the loops.  However, the processing was still going very slow until I read a few other posts
+            // that hinted at a way to limit the code in the inner loops to look for the first time the two variables did not have a remainder.  That made things
+            // go much faster.  Thanks to pleasant-trip for outlining a refactoring way forward and to BOT-Brad for showing the way to refactor the inner loops.
+            int b = 109900;
+            int c = 126900;
+            int h = 0;
 
-            Coprocessor coprocessor = new Coprocessor();
-
-            // Register A starts at 1 now
-            coprocessor.Registers.Add("a", 1);
-
-            do
+            while (true)
             {
-                string instruction = instructions[coprocessor.CurrentInstruction];
-                //Debug.WriteLine($"Instruction[{coprocessor.CurrentInstruction}]: {instruction}");
+                bool f = false;
+                int d = 2;
 
-                ProcessInstruction(instruction, coprocessor);
-                coprocessor.CurrentInstruction++;
+                while (d < b)
+                {
+                    if (b % d == 0)
+                    {
+                        f = true;
+                        break;
+                    }
+                    d++;
+                }
 
-            } while (coprocessor.CurrentInstruction < 32);  // 32 is lines in current program
-
-            return coprocessor.Registers["h"];
+                if (f) h++;
+                if (b == c)
+                    return h;
+                b += 17;
+            }
         }
 
         public int ProcessInstruction(string command, Coprocessor coprocessor)
@@ -133,19 +140,6 @@ namespace AdventOfCode2017.TwentyThree
             }
             file.Close();
             return instructions;
-        }
-    }
-
-    public class Coprocessor
-    {
-        public Dictionary<string, long> Registers { get; set; }
-
-        public int CurrentInstruction { get; set; }
-
-        public Coprocessor()
-        {
-            Registers = new Dictionary<string, long>();
-            CurrentInstruction = 0;
         }
     }
 }
