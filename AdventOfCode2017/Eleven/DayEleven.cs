@@ -4,6 +4,7 @@ namespace AdventOfCode2017.Eleven
 {
     public class DayEleven : IAdventProblemSet
     {
+        // I used this site a LOT to get the solution:  https://www.redblobgames.com/grids/hexagons/
         public string Description()
         {
             return "Hex Ed";
